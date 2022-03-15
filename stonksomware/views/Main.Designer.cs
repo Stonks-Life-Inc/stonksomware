@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label1;
             System.Windows.Forms.RichTextBox richTextBox1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
@@ -46,6 +47,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             label1 = new System.Windows.Forms.Label();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
             label2 = new System.Windows.Forms.Label();
@@ -162,6 +164,7 @@
             this.button2.Size = new System.Drawing.Size(309, 125);
             this.button2.TabIndex = 0;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
@@ -195,8 +198,10 @@
             this.timeLeft_progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.timeLeft_progressBar.Location = new System.Drawing.Point(222, 874);
+            this.timeLeft_progressBar.Maximum = 300;
             this.timeLeft_progressBar.Name = "timeLeft_progressBar";
             this.timeLeft_progressBar.Size = new System.Drawing.Size(1593, 67);
+            this.timeLeft_progressBar.Step = 1;
             this.timeLeft_progressBar.TabIndex = 2;
             // 
             // button1
@@ -209,6 +214,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "🔒 Decrypt";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
@@ -305,5 +311,6 @@
         private Panel panel4;
         private Panel panel5;
         private Panel panel6;
+        private System.Windows.Forms.Timer timer1;
     }
 }
