@@ -36,10 +36,10 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label dateLabel;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label date_label;
             System.Windows.Forms.Panel panel1;
             System.Windows.Forms.Panel panel2;
             this.button2 = new System.Windows.Forms.Button();
+            this.date_label = new System.Windows.Forms.Label();
             this.timeLeft_label = new System.Windows.Forms.Label();
             this.timeLeft_progressBar = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,14 +47,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerProgress = new System.Windows.Forms.Timer(this.components);
             label1 = new System.Windows.Forms.Label();
             richTextBox1 = new System.Windows.Forms.RichTextBox();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             dateLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            date_label = new System.Windows.Forms.Label();
             panel1 = new System.Windows.Forms.Panel();
             panel2 = new System.Windows.Forms.Panel();
             panel1.SuspendLayout();
@@ -129,16 +128,6 @@
             label4.TabIndex = 4;
             label4.Text = "Time left";
             // 
-            // date_label
-            // 
-            date_label.AutoSize = true;
-            date_label.Font = new System.Drawing.Font("Segoe UI", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            date_label.Location = new System.Drawing.Point(154, 157);
-            date_label.Name = "date_label";
-            date_label.Size = new System.Drawing.Size(68, 32);
-            date_label.TabIndex = 6;
-            date_label.Text = "DATE";
-            // 
             // panel1
             // 
             panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -173,7 +162,7 @@
             panel2.AutoSize = true;
             panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            panel2.Controls.Add(date_label);
+            panel2.Controls.Add(this.date_label);
             panel2.Controls.Add(this.timeLeft_label);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(dateLabel);
@@ -183,15 +172,27 @@
             panel2.Size = new System.Drawing.Size(438, 343);
             panel2.TabIndex = 7;
             // 
+            // date_label
+            // 
+            this.date_label.AutoSize = true;
+            this.date_label.Font = new System.Drawing.Font("Segoe UI", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.date_label.Location = new System.Drawing.Point(1, 143);
+            this.date_label.Name = "date_label";
+            this.date_label.Size = new System.Drawing.Size(68, 32);
+            this.date_label.TabIndex = 6;
+            this.date_label.Text = "DATE";
+            this.date_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // timeLeft_label
             // 
             this.timeLeft_label.AutoSize = true;
             this.timeLeft_label.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.timeLeft_label.Location = new System.Drawing.Point(127, 275);
+            this.timeLeft_label.Location = new System.Drawing.Point(3, 280);
             this.timeLeft_label.Name = "timeLeft_label";
             this.timeLeft_label.Size = new System.Drawing.Size(161, 39);
             this.timeLeft_label.TabIndex = 5;
             this.timeLeft_label.Text = "TIMELEFT";
+            this.timeLeft_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timeLeft_progressBar
             // 
@@ -258,6 +259,12 @@
             this.panel6.Size = new System.Drawing.Size(441, 953);
             this.panel6.TabIndex = 11;
             // 
+            // timerProgress
+            // 
+            this.timerProgress.Enabled = true;
+            this.timerProgress.Interval = 1000;
+            this.timerProgress.Tick += new System.EventHandler(this.timerProgress_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -282,6 +289,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main_Load);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -311,6 +319,7 @@
         private Panel panel4;
         private Panel panel5;
         private Panel panel6;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerProgress;
+        private Label date_label;
     }
 }
